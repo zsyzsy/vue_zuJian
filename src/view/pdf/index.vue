@@ -1,17 +1,11 @@
 <template>
-  <!-- <vue-seamless-scroll :data="listData" class="seamless-warp">
-        <ul class="item">
-            <li v-for="item in listData">
-                <span class="title" v-text="item.title"></span>
-                <span class="date" v-text="item.date"></span>
-            </li>
-        </ul>
-    </vue-seamless-scroll> -->
   <div class="zy_content_box">
     <div class="zy_content_box_left">
       <div class="zy_content_box_left_title">pdf预览</div>
       <div class="zy_content_box_left_yl">
-
+        <div v-for="page in numPages" :key="page" style="display: block;width: 100%;">
+          <img :id="'item_'+page" class="pdf-item" src="">
+        </div>
       </div>
     </div>
     <div class="zy_content_box_right">
@@ -30,9 +24,15 @@ import demo from './index.md'
 export default {
   data () {
     return {
-      md: demo
-
+      md: demo,
+      scale: 0.5,
+      numPages: 0
     }
+  },
+  mounted () {
+
+  },
+  methods: {
   }
 }
 </script>
